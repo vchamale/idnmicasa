@@ -1,0 +1,58 @@
+/* General styles for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Spread the title and links apart */
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #6495ed; /* New background color */
+  height: 15vh; /* Set the height to 15% of the viewport */
+}
+
+/* Styles for the title */
+.navbar h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: white; /* Change text color to white for better contrast */
+}
+
+/* Styles for the list (ul) */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem; /* Space between links */
+  margin: 0;
+  padding: 0;
+  margin-left: auto; /* Push the links to the right */
+}
+
+/* Styles for the links (li) */
+.navbar li {
+  display: inline;
+}
+
+/* Styles for the links (Link component) */
+.navbar a {
+  text-decoration: none;
+  color: white; /* Change link color to white for better contrast */
+  font-weight: 500;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    height: auto; /* Let height adjust automatically for content */
+  }
+
+  /* Adjust the list to be aligned to the right */
+  .navbar ul {
+    margin-left: auto; /* Keep the links on the right */
+  }
+
+  /* Adjust the image size if you have an image */
+  .navbar img {
+    width: 100px; /* Example size adjustment for mobile */
+    height: auto;
+  }
+}

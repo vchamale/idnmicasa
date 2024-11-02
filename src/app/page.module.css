@@ -163,3 +163,16 @@ a.secondary {
     filter: invert();
   }
 }
+
+.responsive-image {
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 600px; /* Tamaño máximo en pantallas más grandes */
+}
+
+/* Estilo específico para pantallas pequeñas */
+@media (max-width: 768px) {
+  .responsive-image {
+    max-width: 100%; /* Asegúrate de que la imagen no sea más grande que la pantalla */
+  }
+}

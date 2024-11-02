@@ -1,95 +1,78 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import "./globals.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div>
+      <nav
+        className="navbar navbar-expand-lg navbar-dark fixed-top"
+        id="mainNav"
+      >
+        <div className="container">
+          <a className="navbar-brand" href="#page-top">
+            <img
+              src="/img/logo mi casa-02.png"
+              alt="..."
+              width="100"
+              height="500"
             />
-            Deploy now
           </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            Read our docs
+            Menu
+            <i className="fas fa-bars ms-1"></i>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+            <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+              <li className="nav-item">
+                <a className="nav-link" href="#services">
+                  Servicios
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#portfolio">
+                  JNI
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#about">
+                  Nosotros
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" href="#contact">
+                  Contacto
+                </a>
+              </li>
+              <li className="nav-item">
+                <Link href="/auth/login" className="nav-link">
+                  Iniciar Sesión
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <header className="masthead">
+        <div className="container">
+          <div className="masthead-subheading">Ministerios</div>
+          <div className="masthead-heading text-uppercase">
+            Camino De Santidad
+          </div>
+          <a className="btn btn-primary btn-xl text-uppercase" href="#services">
+            Tell Me More
           </a>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
     </div>
   );
 }

@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Member {
+  member_id Int @id @default(autoincrement())
+  names String
+  lastNames String
+  dateOfBirth DateTime
+  phone String
+  email String @unique
+  username String @unique
+  password String
+}
+
+model Artist {
+  artist_id Int @id @default(autoincrement())
+  name String
+  songs Song[] @relation("ArtistSongs")
+}
+
+model SongKey {
+  key_id Int @id @default(autoincrement())
+  name String
+  songs Song[] @relation("SongKeySongs")
+}
+
+model Song {
+  song_id Int @id @default(autoincrement())
+  artist_id Int
+  key_id Int
+  name String
+  pdf_link String
+  youtube_link String
+  lyrics_link String
+
+  artist Artist @relation("ArtistSongs", fields: [artist_id], references: [artist_id])
+  key SongKey @relation("SongKeySongs", fields: [key_id], references: [key_id])
+  tags SongTags[] @relation("SongTags")
+  presentations Presentation[] @relation("PresentationSongs")
+}
+
+model Tag {
+  tag_id Int @id @default(autoincrement())
+  description String
+  songs SongTags[] @relation("SongTags")
+}
+
+model SongTags {
+  song_id Int
+  tag_id Int
+
+  song Song @relation("SongTags", fields: [song_id], references: [song_id])
+  tag Tag @relation("SongTags", fields: [tag_id], references: [tag_id])
+
+  @@id([song_id, tag_id]) // Composite primary key
+}
+
+model SongsSet {
+  set_id Int @id @default(autoincrement())
+  member Int
+  date DateTime
+  presentations Presentation[] @relation("SetPresentations")
+}
+
+model Presentation {
+  set_id Int
+  song_id Int
+
+  songsSet SongsSet @relation("SetPresentations", fields: [set_id], references: [set_id])
+  song Song @relation("PresentationSongs", fields: [song_id], references: [song_id])
+
+  @@id([set_id, song_id]) // Composite primary key
+}
