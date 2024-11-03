@@ -11,7 +11,7 @@ export const authOptions = {
         email: { label: "Email", type: "text", placeholder: "jsmith" },
         password: { label: "Password", type: "password", placeholder: "*****" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         console.log(credentials);
 
         const userFound = await db.user.findUnique({

@@ -39,8 +39,8 @@ export async function POST(request: NextRequest) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...user } = newUser;
     return NextResponse.json(user);
-  } catch (error: any) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     return NextResponse.json(
       {
         message: error.message,
