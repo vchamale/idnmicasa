@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from "next/link";
+// import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,14 +10,14 @@ export default function Home() {
         id="mainNav"
       >
         <div className="container">
-          <a className="navbar-brand" href="#page-top">
-            <img
+          {/* <a className="navbar-brand" href="#page-top">
+            <Image
               src="/img/logo mi casa-02.png"
               alt="..."
               width="100"
               height="500"
             />
-          </a>
+          </a> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -67,11 +68,14 @@ export default function Home() {
           <div className="masthead-heading text-uppercase">
             Camino De Santidad
           </div>
-          <a className="btn btn-primary btn-xl text-uppercase" href="#services">
-            Tell Me More
-          </a>
         </div>
       </header>
     </div>
   );
+}
+
+{
+  /* <a className="btn btn-primary btn-xl text-uppercase" href="#services">
+Tell Me More
+</a> */
 }

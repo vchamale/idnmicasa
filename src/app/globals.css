@@ -81,7 +81,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
+    --background: #ffffff;
     --foreground: #ededed;
     scroll-behavior: smooth;
   }
