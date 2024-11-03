@@ -8,6 +8,7 @@ import {
   Typography,
   Grid,
   Box,
+  Link,
 } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -49,7 +50,6 @@ const Register: React.FC = () => {
         "Content-Type": "application/json",
       },
     });
-    const resJSON = await res.json();
 
     if (res.ok) {
       router.push("/auth/login");
@@ -59,7 +59,13 @@ const Register: React.FC = () => {
   return (
     <Container maxWidth="xs" sx={{ paddingTop: 4 }}>
       <Box marginBottom={5}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          sx={{ color: "#212529" }}
+        >
           Registrarse
         </Typography>
       </Box>
@@ -203,6 +209,7 @@ const Register: React.FC = () => {
           </Grid>
         </Grid>
       </form>
+      <Link href={"/auth/login"}>Ya tienes cuenta?</Link>
     </Container>
   );
 };

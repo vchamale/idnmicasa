@@ -12,6 +12,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { Link } from "@mui/material";
 
 interface FormValues {
   email: string;
@@ -23,7 +24,6 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<FormValues>();
 
   const router = useRouter();
@@ -52,7 +52,13 @@ const Login = () => {
   return (
     <Container maxWidth="xs" sx={{ paddingTop: 4 }}>
       <Box marginBottom={5}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          sx={{ color: "#212529" }}
+        >
           Inicio de Sesión
         </Typography>
       </Box>
@@ -113,6 +119,8 @@ const Login = () => {
           </Grid>
         </Grid>
       </form>
+
+      <Link href={"/auth/register"}>No tienes cuenta?</Link>
     </Container>
   );
 };

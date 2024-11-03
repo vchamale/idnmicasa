@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { PrismaClient } from "@prisma/client";
+
+interface SongKey {
+  key_id: number;
+  name: string;
+}
 
 const Songs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +22,7 @@ const Songs = () => {
     const fetchSongKeys = async () => {
       try {
         const keys = await prisma.songKey.findMany();
-        setSongKeys(keys.map((key) => key.name));
+        setSongKeys(keys.map((key: SongKey) => key.name));
       } catch (error) {
         console.error("Error fetching SongKeys:", error);
       }
@@ -54,7 +58,7 @@ const Songs = () => {
         alert("Error al guardar la canción.");
       }
     } catch (error) {
-      alert("Hubo un problema al guardar la canción.");
+      alert(`Hubo un problema al guardar la canción: ${error} `);
     }
   };
 

@@ -23,7 +23,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(">>>", data);
     const hashedPassword = await bcrypt.hash(data.password, 10);
     const newUser = await db.member.create({
       data: {
@@ -37,9 +36,11 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...user } = newUser;
     return NextResponse.json(user);
   } catch (error: any) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return NextResponse.json(
       {
         message: error.message,
