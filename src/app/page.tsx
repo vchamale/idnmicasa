@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,10 +13,12 @@ export default function Home() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <nav
+        className="navbar navbar-expand-lg navbar-dark fixed-top"
+        id="mainNav"
+      >
         <div className="container ctn">
-          <a
-            className="navbar-brand flex-item" href="#page-top">
+          <a className="navbar-brand flex-item" href="#page-top">
             <Image
               src="/img/logo-mi-casa-02.png"
               alt="..."
@@ -36,7 +38,12 @@ export default function Home() {
             {/* TODO: Update the way icons are being showed */}
             <i className="fas fa-bars ms-1"></i>
           </button>
-          <div className={`navbar-collapse1 ${isCollapsed ? "" : "show"} flex-item`} id="navbarResponsive">
+          <div
+            className={`navbar-collapse1 ${
+              isCollapsed ? "" : "show"
+            } flex-item`}
+            id="navbarResponsive"
+          >
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="#services">
