@@ -18,7 +18,7 @@ export default function Home() {
           <a
             className="navbar-brand flex-item" href="#page-top">
             <Image
-              src="/img/navbar-logo.svg"
+              src="/img/logo-mi-casa-02.png"
               alt="..."
               width={100}
               height={100}
