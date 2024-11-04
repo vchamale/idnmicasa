@@ -1,36 +1,42 @@
+'use client'
 import "./globals.css";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleNavbar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <div>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
-        id="mainNav"
-      >
-        <div className="container">
-          {/* <a className="navbar-brand" href="#page-top">
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div className="container ctn">
+          <a
+            className="navbar-brand flex-item" href="#page-top">
             <Image
-              src="/img/logo mi casa-02.png"
+              src="/img/logo-mi-casa-02.png"
               alt="..."
-              width="100"
-              height="500"
+              width={100}
+              height={100}
             />
-          </a> */}
+          </a>
           <button
+            onClick={toggleNavbar}
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
             aria-controls="navbarResponsive"
-            aria-expanded="false"
+            aria-expanded={!isCollapsed}
             aria-label="Toggle navigation"
           >
             Menu
+            {/* TODO: Update the way icons are being showed */}
             <i className="fas fa-bars ms-1"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          <div className={`navbar-collapse1 ${isCollapsed ? "" : "show"} flex-item`} id="navbarResponsive">
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="#services">
@@ -47,7 +53,6 @@ export default function Home() {
                   Nosotros
                 </a>
               </li>
-
               <li className="nav-item">
                 <a className="nav-link" href="#contact">
                   Contacto
@@ -72,10 +77,4 @@ export default function Home() {
       </header>
     </div>
   );
-}
-
-{
-  /* <a className="btn btn-primary btn-xl text-uppercase" href="#services">
-Tell Me More
-</a> */
 }
